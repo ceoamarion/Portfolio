@@ -1,6 +1,6 @@
 import React from 'react';
 import { PROJECTS } from '../data';
-import { ExternalLink, Play, Github } from 'lucide-react';
+import { ExternalLink, Play, Github, Code2 } from 'lucide-react';
 
 export default function FeaturedProjects() {
     return (
