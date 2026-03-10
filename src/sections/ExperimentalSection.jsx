@@ -23,6 +23,15 @@ export default function ExperimentalSection() {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-600/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         <div className="h-72 rounded-2xl overflow-hidden bg-dark-900 relative shadow-inner border border-white/5">
+                            {/* Project Sin Coming Soon Overlay */}
+                            {project.id === "sin-concept" && (
+                                <div className="absolute inset-0 z-20 flex items-center justify-center bg-dark-900/60 backdrop-blur-sm">
+                                    <div className="px-8 py-3 bg-red-900/40 border border-red-500/50 text-red-500 font-extrabold tracking-[0.3em] uppercase rotate-[-5deg] shadow-[0_0_30px_rgba(239,68,68,0.2)] backdrop-blur-md">
+                                        In Development
+                                    </div>
+                                </div>
+                            )}
+
                             {project.youtubeId ? (
                                 <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                                     <iframe

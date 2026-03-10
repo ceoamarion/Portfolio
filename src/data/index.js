@@ -47,7 +47,7 @@ export const PROJECTS = [
         role: "Systems Prototyper & Technical Designer",
         tools: ["Unreal Engine 5", "Blueprints", "C++", "Data Assets"],
         tags: ["Action Shooter", "Combat Systems", "Systems-Driven"],
-        image: "/placeholder-shooter.jpg",
+        image: "./placeholder-shooter.jpg",
         youtubeId: "yKxTGoN3qD8",
         youtubeStart: 5,
         caseStudy: {
@@ -67,7 +67,7 @@ export const PROJECTS = [
         role: "Gameplay Systems Designer",
         tools: ["Unreal Engine 5", "Blueprint Visual Scripting", "Animation Montages", "Behavior Trees"],
         tags: ["Wave Survival", "Melee/Ranged Hybrid", "AI Combat"],
-        image: "/placeholder-sin.jpg",
+        image: "./placeholder-sin.jpg",
         youtubeId: "5o1HAEtpIXc",
         youtubeStart: 13,
         caseStudy: {
@@ -87,7 +87,7 @@ export const PROJECTS = [
         role: "Technical Designer",
         tools: ["Unreal Engine 5.5", "Spline Components", "Math & Vectors", "Character Movement Component"],
         tags: ["Traversal Mechanics", "Environment Interaction", "Player Flow"],
-        image: "/placeholder-zipline.jpg", 
+        image: "./placeholder-zipline.jpg", 
         youtubeId: "2uI2VVSTVso",
         youtubeStart: 2,
     },
@@ -99,7 +99,7 @@ export const PROJECTS = [
         role: "XR / Simulation Prototyper",
         tools: ["Unreal Engine XR / Unity", "AR Foundation", "Spatial Logic"],
         tags: ["AR Simulation", "Applied Interface", "Interactive Systems"],
-        image: "/placeholder-ar.jpg",
+        image: "./placeholder-ar.jpg",
         youtubeId: "5i-N-pocw00",
         youtubeStart: 10,
     }
@@ -112,8 +112,8 @@ export const EXPERIMENTAL_PROJECTS = [
         hook: "Mental-state-aware interface utilizing raw EEG telemetry streams.",
         description: "Pushed the boundaries of HCI by utilizing an Emotiv headset. Built an experimental web interface that dynamically reacts to the physiological focus and mental states of the user.",
         tags: ["Brain-Computer Interface", "Emotiv EEG", "Future Paradigms", "Systems Builder"],
-        image: "/placeholder-eeg.jpg",
-        localVideo: "/webapp-demo.mp4",
+        image: "./placeholder-eeg.jpg",
+        localVideo: "./webapp-demo.mp4",
         youtubeId: null // LinkedIn video requires local file replacement later
     },
     {
@@ -122,7 +122,7 @@ export const EXPERIMENTAL_PROJECTS = [
         hook: "R&D concept exploring systemic emergent behavior.",
         description: "An early technical prototype testing how localized world-state alterations and 'infections' dynamically mutate level topology and AI behavior trees.",
         tags: ["Emergent Systems", "R&D", "Coming Soon"],
-        image: "/placeholder-shooter.jpg"
+        image: "./placeholder-shooter.jpg"
     }
 ];
 

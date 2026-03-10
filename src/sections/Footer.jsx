@@ -36,7 +36,7 @@ export default function Footer() {
                         <Linkedin size={22} />
                         <span>LinkedIn</span>
                     </a>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
+                    <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
                         <FileText size={22} />
                         <span>Resume (PDF)</span>
                     </a>
