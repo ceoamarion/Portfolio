@@ -32,13 +32,13 @@ export default function Footer() {
                         <Github size={22} />
                         <span>GitHub</span>
                     </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
+                    <a href="https://www.linkedin.com/in/amarion-anderson-0498b5205/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
                         <Linkedin size={22} />
-                        <span>LinkedIn</span> {/* TODO [PLACEHOLDER]: Add LinkedIn URL href="#" */}
+                        <span>LinkedIn</span>
                     </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-medium">
                         <FileText size={22} />
-                        <span>Resume (PDF)</span> {/* TODO [PLACEHOLDER]: Add Resume Link href="#" */}
+                        <span>Resume (PDF)</span>
                     </a>
                 </div>
 
