@@ -34,6 +34,17 @@ export default function ExperimentalSection() {
                                         tabIndex="-1"
                                     />
                                 </div>
+                            ) : project.localVideo ? (
+                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                                    <video
+                                        src={project.localVideo}
+                                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.1] group-hover:scale-[1.15] filter brightness-[0.7] contrast-125 group-hover:brightness-[0.9] transition-all duration-1000 object-cover"
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                    />
+                                </div>
                             ) : (
                                 <img
                                     src={project.image}

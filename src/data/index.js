@@ -113,6 +113,7 @@ export const EXPERIMENTAL_PROJECTS = [
         description: "Pushed the boundaries of HCI by utilizing an Emotiv headset. Built an experimental web interface that dynamically reacts to the physiological focus and mental states of the user.",
         tags: ["Brain-Computer Interface", "Emotiv EEG", "Future Paradigms", "Systems Builder"],
         image: "/placeholder-eeg.jpg",
+        localVideo: "/webapp-demo.mp4",
         youtubeId: null // LinkedIn video requires local file replacement later
     },
     {
