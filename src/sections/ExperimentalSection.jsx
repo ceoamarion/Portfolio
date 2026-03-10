@@ -44,10 +44,20 @@ export default function ExperimentalSection() {
                                     />
                                 </div>
                             ) : project.localVideo ? (
-                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden bg-dark-900 flex justify-center items-center">
+                                    {/* Blurred backdrop for vertical videos to prevent solid black bars */}
                                     <video
                                         src={project.localVideo}
-                                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.1] group-hover:scale-[1.15] filter brightness-[0.7] contrast-125 group-hover:brightness-[0.9] transition-all duration-1000 object-cover"
+                                        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                    />
+                                    {/* Foreground properly contained 9:16 video */}
+                                    <video
+                                        src={project.localVideo}
+                                        className="relative z-10 w-full h-full object-contain filter brightness-[0.85] contrast-125 group-hover:scale-[1.03] group-hover:brightness-100 transition-all duration-700"
                                         autoPlay
                                         muted
                                         loop
