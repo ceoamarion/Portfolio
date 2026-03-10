@@ -23,11 +23,24 @@ export default function ExperimentalSection() {
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-600/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         <div className="h-72 rounded-2xl overflow-hidden bg-dark-900 relative shadow-inner border border-white/5">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover filter brightness-[0.6] contrast-125 group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-700"
-                            />
+                            {project.youtubeId ? (
+                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&controls=0&start=${project.youtubeStart || 0}&playlist=${project.youtubeId}&rel=0&showinfo=0&modestbranding=1`}
+                                        title={project.title}
+                                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.35] group-hover:scale-[1.4] filter brightness-[0.6] contrast-125 group-hover:brightness-[0.85] transition-all duration-1000"
+                                        frameBorder="0"
+                                        allow="autoplay; encrypted-media; picture-in-picture"
+                                        tabIndex="-1"
+                                    />
+                                </div>
+                            ) : (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover filter brightness-[0.6] contrast-125 group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-700"
+                                />
+                            )}
                         </div>
 
                         <div className="space-y-4 pt-6 relative z-10">

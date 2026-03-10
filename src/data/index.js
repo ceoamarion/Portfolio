@@ -47,8 +47,9 @@ export const PROJECTS = [
         role: "Systems Prototyper & Technical Designer",
         tools: ["Unreal Engine 5", "Blueprints", "C++", "Data Assets"],
         tags: ["Action Shooter", "Combat Systems", "Systems-Driven"],
-        image: "/placeholder-shooter.jpg", // TODO [PLACEHOLDER]: Replace with Organik screenshot
-        video: null,
+        image: "/placeholder-shooter.jpg",
+        youtubeId: "yKxTGoN3qD8",
+        youtubeStart: 5,
         caseStudy: {
             overview: "Building a highly responsive top-down combat framework that easily allows testing of complex weapon dynamics (like rocket launchers and grenades) and environmental traps.",
             goal: "Validate a systemic action loop where modular combat abilities cleanly interact with AI behaviors and level hazards.",
@@ -66,7 +67,9 @@ export const PROJECTS = [
         role: "Gameplay Systems Designer",
         tools: ["Unreal Engine 5", "Blueprint Visual Scripting", "Animation Montages", "Behavior Trees"],
         tags: ["Wave Survival", "Melee/Ranged Hybrid", "AI Combat"],
-        image: "/placeholder-sin.jpg", // TODO [PLACEHOLDER]: Replace with Control Alt Delete screenshot
+        image: "/placeholder-sin.jpg",
+        youtubeId: "5o1HAEtpIXc",
+        youtubeStart: 13,
         caseStudy: {
             overview: "A combat arena designed to pressure players into utilizing a complete suite of integrated defensive and offensive mechanics.",
             goal: "Develop a tight, reactive combat loop balancing varied mechanics (melee, ranged, dash, block) within an escalating progression system.",
@@ -84,7 +87,9 @@ export const PROJECTS = [
         role: "Technical Designer",
         tools: ["Unreal Engine 5.5", "Spline Components", "Math & Vectors", "Character Movement Component"],
         tags: ["Traversal Mechanics", "Environment Interaction", "Player Flow"],
-        image: "/placeholder-zipline.jpg", // TODO [PLACEHOLDER]: Replace with Zipline screenshot
+        image: "/placeholder-zipline.jpg", 
+        youtubeId: "2uI2VVSTVso",
+        youtubeStart: 2,
     },
     {
         id: "myproject5-ar",
@@ -94,7 +99,9 @@ export const PROJECTS = [
         role: "XR / Simulation Prototyper",
         tools: ["Unreal Engine XR / Unity", "AR Foundation", "Spatial Logic"],
         tags: ["AR Simulation", "Applied Interface", "Interactive Systems"],
-        image: "/placeholder-ar.jpg", // TODO [PLACEHOLDER]: Replace with AR plant screenshot
+        image: "/placeholder-ar.jpg",
+        youtubeId: "5i-N-pocw00",
+        youtubeStart: 10,
     }
 ];
 
@@ -105,7 +112,8 @@ export const EXPERIMENTAL_PROJECTS = [
         hook: "Mental-state-aware interface utilizing raw EEG telemetry streams.",
         description: "Pushed the boundaries of HCI by utilizing an Emotiv headset. Built an experimental web interface that dynamically reacts to the physiological focus and mental states of the user.",
         tags: ["Brain-Computer Interface", "Emotiv EEG", "Future Paradigms", "Systems Builder"],
-        image: "/placeholder-eeg.jpg" // TODO [PLACEHOLDER]: Replace with Emotiv Web App screenshot
+        image: "/placeholder-eeg.jpg",
+        youtubeId: null // LinkedIn video requires local file replacement later
     },
     {
         id: "sin-concept",
@@ -113,7 +121,7 @@ export const EXPERIMENTAL_PROJECTS = [
         hook: "R&D concept exploring systemic emergent behavior.",
         description: "An early technical prototype testing how localized world-state alterations and 'infections' dynamically mutate level topology and AI behavior trees.",
         tags: ["Emergent Systems", "R&D", "Coming Soon"],
-        image: "/placeholder-shooter.jpg" // TODO [PLACEHOLDER]: Update when Sin is ready
+        image: "/placeholder-shooter.jpg"
     }
 ];
 
