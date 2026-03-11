@@ -1,6 +1,69 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { PROJECTS } from '../data';
-import { ExternalLink, Play, Github, Code2 } from 'lucide-react';
+import { ExternalLink, Play, Github, Code2, Volume2, VolumeX } from 'lucide-react';
+
+const ProjectMedia = ({ project }) => {
+    const [isMuted, setIsMuted] = useState(true);
+    const iframeRef = useRef(null);
+
+    const toggleMute = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsMuted(!isMuted);
+        if (project.youtubeId && iframeRef.current) {
+            const command = isMuted ? 'unMute' : 'mute'; // Note: if currently muted, we want to unMute
+            iframeRef.current.contentWindow.postMessage(JSON.stringify({ event: 'command', func: command, args: '' }), '*');
+        }
+    };
+
+    return (
+        <figure className="relative rounded-3xl overflow-hidden bg-dark-800 border border-white/10 shadow-2xl aspect-video md:aspect-[4/3] group-hover:border-white/20 transition-all duration-500">
+            {project.youtubeId ? (
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                    <iframe
+                        ref={iframeRef}
+                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&controls=0&start=${project.youtubeStart || 0}&playlist=${project.youtubeId}&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`}
+                        title={project.title}
+                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.35] group-hover:scale-[1.4] filter brightness-75 contrast-125 group-hover:brightness-110 transition-all duration-1000"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        tabIndex="-1"
+                    />
+                </div>
+            ) : (
+                <img
+                    src={project.image}
+                    alt={`Screenshot: ${project.title}`}
+                    className="w-full h-full object-cover filter brightness-75 contrast-125 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700"
+                />
+            )}
+
+            {/* subtle vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-90 pointer-events-none" />
+
+            {/* Mute button overlay for videos */}
+            {project.youtubeId && (
+                <div className="absolute bottom-6 right-6 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button 
+                        onClick={toggleMute} 
+                        className="p-3 bg-dark-900/80 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-emerald-600 hover:scale-110 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer pointer-events-auto"
+                    >
+                        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                    </button>
+                </div>
+            )}
+
+            {/* Placeholder Video play overlay (only if no youtube clip plays automatically) */}
+            {!project.youtubeId && (
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button className="p-5 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/20 hover:scale-110 transition-all shadow-xl pointer-events-auto">
+                        <Play className="fill-white" size={28} />
+                    </button>
+                </div>
+            )}
+        </figure>
+    );
+};
 
 export default function FeaturedProjects() {
     return (
@@ -26,38 +89,7 @@ export default function FeaturedProjects() {
                             {/* Decorative ambient glow */}
                             <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/30 to-emerald-600/30 rounded-[2.5rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                            <figure className="relative rounded-3xl overflow-hidden bg-dark-800 border border-white/10 shadow-2xl aspect-video md:aspect-[4/3] group-hover:border-white/20 transition-all duration-500">
-                                {project.youtubeId ? (
-                                    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-                                        <iframe
-                                            src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&controls=0&start=${project.youtubeStart || 0}&playlist=${project.youtubeId}&rel=0&showinfo=0&modestbranding=1`}
-                                            title={project.title}
-                                            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.35] group-hover:scale-[1.4] filter brightness-75 contrast-125 group-hover:brightness-110 transition-all duration-1000"
-                                            frameBorder="0"
-                                            allow="autoplay; encrypted-media; picture-in-picture"
-                                            tabIndex="-1"
-                                        />
-                                    </div>
-                                ) : (
-                                    <img
-                                        src={project.image}
-                                        alt={`Screenshot: ${project.title}`}
-                                        className="w-full h-full object-cover filter brightness-75 contrast-125 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700"
-                                    />
-                                )}
-
-                                {/* subtle vignette */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-90 pointer-events-none" />
-
-                                {/* Placeholder Video play overlay (only if no youtube clip plays automatically) */}
-                                {!project.youtubeId && (
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <button className="p-5 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/20 hover:scale-110 transition-all shadow-xl">
-                                            <Play className="fill-white" size={28} />
-                                        </button>
-                                    </div>
-                                )}
-                            </figure>
+                            <ProjectMedia project={project} />
                         </div>
 
                         {/* Content Side */}

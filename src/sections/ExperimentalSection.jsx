@@ -1,5 +1,91 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { EXPERIMENTAL_PROJECTS } from '../data';
+import { Volume2, VolumeX } from 'lucide-react';
+
+const ProjectMedia = ({ project }) => {
+    const [isMuted, setIsMuted] = useState(true);
+    const iframeRef = useRef(null);
+    const videoRef = useRef(null);
+
+    const toggleMute = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsMuted(!isMuted);
+        if (project.youtubeId && iframeRef.current) {
+            const command = isMuted ? 'unMute' : 'mute';
+            iframeRef.current.contentWindow.postMessage(JSON.stringify({ event: 'command', func: command, args: '' }), '*');
+        } else if (project.localVideo && videoRef.current) {
+            videoRef.current.muted = !isMuted;
+        }
+    };
+
+    return (
+        <div className="h-72 rounded-2xl overflow-hidden bg-dark-900 relative shadow-inner border border-white/5">
+            {/* Project Sin Coming Soon Overlay */}
+            {project.id === "sin-concept" && (
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-dark-900/60 backdrop-blur-sm">
+                    <div className="px-8 py-3 bg-red-900/40 border border-red-500/50 text-red-500 font-extrabold tracking-[0.3em] uppercase rotate-[-5deg] shadow-[0_0_30px_rgba(239,68,68,0.2)] backdrop-blur-md">
+                        In Development
+                    </div>
+                </div>
+            )}
+
+            {project.youtubeId ? (
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                    <iframe
+                        ref={iframeRef}
+                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&controls=0&start=${project.youtubeStart || 0}&playlist=${project.youtubeId}&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`}
+                        title={project.title}
+                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.35] group-hover:scale-[1.4] filter brightness-[0.6] contrast-125 group-hover:brightness-[0.85] transition-all duration-1000"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        tabIndex="-1"
+                    />
+                </div>
+            ) : project.localVideo ? (
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden bg-dark-900 flex justify-center items-center">
+                    {/* Blurred backdrop for vertical videos to prevent solid black bars */}
+                    <video
+                        src={project.localVideo}
+                        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                    />
+                    {/* Foreground properly contained video */}
+                    <video
+                        ref={videoRef}
+                        src={project.localVideo}
+                        className="relative z-10 w-full h-full object-contain filter brightness-[0.85] contrast-125 group-hover:scale-[1.03] group-hover:brightness-100 transition-all duration-700"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                    />
+                </div>
+            ) : (
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover filter brightness-[0.6] contrast-125 group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-700"
+                />
+            )}
+
+            {/* Mute button overlay for videos */}
+            {(project.youtubeId || project.localVideo) && project.id !== "sin-concept" && (
+                <div className="absolute bottom-4 right-4 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button 
+                        onClick={toggleMute} 
+                        className="p-3 bg-dark-900/80 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-emerald-600 hover:scale-110 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer pointer-events-auto"
+                    >
+                        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                    </button>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default function ExperimentalSection() {
     return (
@@ -22,56 +108,7 @@ export default function ExperimentalSection() {
                         {/* Ambient glow */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-600/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                        <div className="h-72 rounded-2xl overflow-hidden bg-dark-900 relative shadow-inner border border-white/5">
-                            {/* Project Sin Coming Soon Overlay */}
-                            {project.id === "sin-concept" && (
-                                <div className="absolute inset-0 z-20 flex items-center justify-center bg-dark-900/60 backdrop-blur-sm">
-                                    <div className="px-8 py-3 bg-red-900/40 border border-red-500/50 text-red-500 font-extrabold tracking-[0.3em] uppercase rotate-[-5deg] shadow-[0_0_30px_rgba(239,68,68,0.2)] backdrop-blur-md">
-                                        In Development
-                                    </div>
-                                </div>
-                            )}
-
-                            {project.youtubeId ? (
-                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-                                    <iframe
-                                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&controls=0&start=${project.youtubeStart || 0}&playlist=${project.youtubeId}&rel=0&showinfo=0&modestbranding=1`}
-                                        title={project.title}
-                                        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[1.35] group-hover:scale-[1.4] filter brightness-[0.6] contrast-125 group-hover:brightness-[0.85] transition-all duration-1000"
-                                        frameBorder="0"
-                                        allow="autoplay; encrypted-media; picture-in-picture"
-                                        tabIndex="-1"
-                                    />
-                                </div>
-                            ) : project.localVideo ? (
-                                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden bg-dark-900 flex justify-center items-center">
-                                    {/* Blurred backdrop for vertical videos to prevent solid black bars */}
-                                    <video
-                                        src={project.localVideo}
-                                        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                    />
-                                    {/* Foreground properly contained 9:16 video */}
-                                    <video
-                                        src={project.localVideo}
-                                        className="relative z-10 w-full h-full object-contain filter brightness-[0.85] contrast-125 group-hover:scale-[1.03] group-hover:brightness-100 transition-all duration-700"
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                    />
-                                </div>
-                            ) : (
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover filter brightness-[0.6] contrast-125 group-hover:scale-105 group-hover:brightness-[0.85] transition-all duration-700"
-                                />
-                            )}
-                        </div>
+                        <ProjectMedia project={project} />
 
                         <div className="space-y-4 pt-6 relative z-10">
                             <h3 className="text-3xl font-bold font-heading text-white tracking-tight">
