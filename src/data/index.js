@@ -9,9 +9,10 @@ export const HERO_DATA = {
 export const ABOUT_DATA = {
     title: "About Me",
     paragraphs: [
-        "I am a Technical Designer and XR Developer working at the intersection of systems design, technical implementation, and experimental interfaces. I don't just draft design documents—I architect the scalable logic and prototypes that make mechanics deeply interactive and ready for production.",
-        "My work spans robust tactical combat systems (mixing melee, ranged, and defensive states), seamless traversal mechanics, and emerging technologies like Augmented Reality and Brain-Computer Interfaces (BCI). Whether scripting a momentum-based zipline system in Unreal Engine or prototyping an EEG-driven reactive web interface, my goal is to deliver ambitious and testable experiences.",
-        "I thrive in the gray area between creative vision and engineering. By communicating effectively across disciplines and leveraging deep prototyping knowledge, I ensure high-level concepts are proven quickly, scalable, and polished to a professional standard."
+        "I am a Technical Designer and XR Developer working at the intersection of systems design, technical implementation, and experimental interfaces.",
+        "Rather than just drafting static design documents, I architect the scalable logic and high-fidelity prototypes that make core mechanics deeply interactive and ready for production.",
+        "My work ranges from robust tactical combat systems—balancing melee, ranged, and defensive states—to seamless traversal mechanics. Beyond traditional screens, I explore emerging technologies like Augmented Reality and Brain-Computer Interfaces.",
+        "Whether I am scripting a momentum-based zipline system in Unreal Engine or prototyping an EEG-driven reactive web interface, my goal is to deliver ambitious and technically grounded experiences."
     ]
 };
 
@@ -41,84 +42,100 @@ export const SKILL_CATEGORIES = [
 export const PROJECTS = [
     {
         id: "organik",
-        title: "Organik",
-        hook: "A high-octane top-down action shooter driven by systemic combat and environmental traps.",
-        description: "An Unreal Engine combat prototype focusing on fluid player abilities, dynamic environmental hazards, and structured encounter flow.",
-        role: "Systems Prototyper & Technical Designer",
-        tools: ["Unreal Engine 5", "Blueprints", "C++", "Data Assets"],
-        tags: ["Action Shooter", "Combat Systems", "Systems-Driven"],
+        title: "Organik: Systems-Driven Shooter",
+        hook: "A top-down action prototype driven by systemic combat and level hazard interactions.",
+        description: "An Unreal Engine combat prototype focusing on fluid player abilities, dynamic environmental hazards, and structured encounter flow. The system emphasizes clear feedback loops and modular ability design.",
+        role: "Gameplay Systems Prototyper",
+        tools: ["Unreal Engine 5", "Blueprint Visual Scripting", "Data Assets"],
+        tags: ["Action Shooter", "Systemic Combat", "Encounter Flow"],
         image: "./placeholder-shooter.jpg",
         youtubeId: "yKxTGoN3qD8",
         youtubeStart: 5,
+        repoLink: null,
         caseStudy: {
-            overview: "Building a highly responsive top-down combat framework that easily allows testing of complex weapon dynamics (like rocket launchers and grenades) and environmental traps.",
             goal: "Validate a systemic action loop where modular combat abilities cleanly interact with AI behaviors and level hazards.",
             systems: "Architected a scalable ability setup handling diverse weapon outputs, integrated alongside a unified damage and state management system.",
-            technical: "Constructed utilizing Data Assets for rapid balancing. Built reliable trap and encounter trigger volumes to shape level flow without hardcoding scenarios.",
-            challenge: "Maintaining clear visual feedback amidst chaotic overlapping abilities. Solved by standardizing collision layers and prioritizing distinct, high-contrast VFX logic.",
-            learned: "Deepened my understanding of decoupling presentation from underlying ability logic, proving that robust architecture drastically speeds up encounter tuning."
+            technical: "Constructed utilizing Data Assets for rapid balancing. Built reliable trap and encounter trigger volumes to shape level flow.",
+            challenge: "Maintaining clear visual feedback amidst chaotic overlapping abilities, solved by prioritizing distinct, high-contrast VFX logic.",
+            outcome: "Proved out a highly responsive top-down combat framework that easily allows testing of complex weapon dynamics."
         }
     },
     {
         id: "control-alt-delete",
-        title: "Control Alt Delete",
+        title: "Control Alt Delete: Arena Survival",
         hook: "Wave survival combat demanding precise melee, ranged, dash, and blocking execution.",
-        description: "A polished gameplay systems prototype challenging players to survive intricate custom enemy behaviors and escalating arena progression.",
-        role: "Gameplay Systems Designer",
-        tools: ["Unreal Engine 5", "Blueprint Visual Scripting", "Animation Montages", "Behavior Trees"],
-        tags: ["Wave Survival", "Melee/Ranged Hybrid", "AI Combat"],
+        description: "A polished combat systems prototype challenging players to survive intricate custom enemy behaviors and an escalating arena progression loop.",
+        role: "Technical Designer",
+        tools: ["Unreal Engine 5", "Blueprints", "Animation Montages", "Behavior Trees"],
+        tags: ["Wave Survival", "Melee & Ranged", "AI Combat"],
         image: "./placeholder-sin.jpg",
         youtubeId: "5o1HAEtpIXc",
         youtubeStart: 13,
+        repoLink: null,
         caseStudy: {
-            overview: "A combat arena designed to pressure players into utilizing a complete suite of integrated defensive and offensive mechanics.",
             goal: "Develop a tight, reactive combat loop balancing varied mechanics (melee, ranged, dash, block) within an escalating progression system.",
-            systems: "Implemented a complex player state machine mapping distinct interruptions, invincibility frames during dashes, and block mitigation math.",
-            technical: "Utilized animation notifies and multi-casting to precisely sync hitboxes and damage calculation windows to visual impact frames.",
-            challenge: "Ensuring custom enemy behaviors felt fair but punishing. Mitigated by designing clear telegraphing states in the AI behavior trees before attack execution.",
-            learned: "Mastered the nuances of frame-perfect combat state management and the exact balance of offensive risk vs. defensive reward."
+            systems: "Implemented a complex player state machine mapping distinct interruptions, invincibility frames, and block mitigation math.",
+            technical: "Utilized animation notifies to precisely sync hitboxes and damage calculation windows to visual impact frames.",
+            challenge: "Ensuring custom enemy behaviors felt fair but punishing, mitigated by designing clear telegraphing states in the AI behavior trees.",
+            outcome: "Demonstrated mastery over frame-perfect combat state management and the exact balance of offensive risk versus defensive reward."
         }
     },
     {
         id: "new-zipline",
-        title: "New Zipline 5.5",
-        hook: "Momentum-conserving traversal mechanics driving environmental gameplay flow.",
-        description: "A specialized technical prototype emphasizing fluid spatial movement, vertical character navigation, and seamless spline interactions.",
+        title: "Traversal Mechanics Prototype",
+        hook: "Momentum-conserving zipline mechanics driving environmental gameplay flow.",
+        description: "A specialized technical prototype emphasizing fluid spatial movement, vertical character navigation, and seamless spline-based environmental interactions.",
         role: "Technical Designer",
-        tools: ["Unreal Engine 5.5", "Spline Components", "Math & Vectors", "Character Movement Component"],
-        tags: ["Traversal Mechanics", "Environment Interaction", "Player Flow"],
+        tools: ["Unreal Engine 5", "Spline Components", "Vector Math", "Character Movement"],
+        tags: ["Traversal Flow", "Level Interaction", "Spline Systems"],
         image: "./placeholder-zipline.jpg", 
         youtubeId: "2uI2VVSTVso",
         youtubeStart: 2,
+        repoLink: null,
+        caseStudy: {
+            goal: "Create a physically grounded, highly readable movement system that maintains momentum traversing complex 3D environments.",
+            systems: "Custom spline-following logic extending the base Character Movement Component to handle rapid acceleration and directional dismounts.",
+            technical: "Applied vector math to project player velocity onto spline tangents, ensuring momentum conservation across varying angles.",
+            challenge: "Preventing jitter during high-speed spline attachment and transitioning smoothly back to standard falling states.",
+            outcome: "Delivered a robust, highly extensible traversal mechanic ready for integration into larger level design workflows."
+        }
     },
     {
         id: "myproject5-ar",
-        title: "AR Smart Agriculture Simulation",
+        title: "AR Smart Agriculture Concept",
         hook: "An applied interface translating environmental data into spatial visualizations.",
         description: "An interactive prototype moving beyond traditional games to filter high-density agricultural data into an intuitive Augmented Reality environment.",
-        role: "XR / Simulation Prototyper",
-        tools: ["Unreal Engine XR / Unity", "AR Foundation", "Spatial Logic"],
+        role: "XR Prototyper",
+        tools: ["Unreal Engine XR", "AR Foundation", "Spatial Logic"],
         tags: ["AR Simulation", "Applied Interface", "Interactive Systems"],
         image: "./placeholder-ar.jpg",
         youtubeId: "5i-N-pocw00",
         youtubeStart: 10,
+        repoLink: null,
+        caseStudy: {
+            goal: "Visualize abstract, high-density sensor data dynamically onto physical environments using spatial computing.",
+            systems: "Real-time spatial mapping and anchored data visualization floating above real-world targets.",
+            technical: "Leveraged AR plane detection to accurately position interactive 3D UI elements and environmental indicators.",
+            challenge: "Ensuring data readability and interface stability while the user is physically moving around the space.",
+            outcome: "A functional proof-of-concept demonstrating how game engine technology can solve real-world interface problems."
+        }
     }
 ];
 
 export const EXPERIMENTAL_PROJECTS = [
     {
         id: "bci-eeg",
-        title: "Web App Emotiv Demo",
+        title: "Emotiv EEG / BCI Interface",
         hook: "Mental-state-aware interface utilizing raw EEG telemetry streams.",
-        description: "Pushed the boundaries of HCI by utilizing an Emotiv headset. Built an experimental web interface that dynamically reacts to the physiological focus and mental states of the user.",
-        tags: ["Brain-Computer Interface", "Emotiv EEG", "Future Paradigms", "Systems Builder"],
+        description: "Pushed the boundaries of HCI by utilizing an Emotiv headset. Built an experimental web interface that dynamically reacts to the physiological focus and mental states of the user, filtering raw biometric signal data into readable UI feedback.",
+        tags: ["Brain-Computer Interface", "Signal Visualization", "Future Paradigms"],
         image: "./placeholder-eeg.jpg",
         localVideo: "./webapp-demo.mp4",
-        youtubeId: null // LinkedIn video requires local file replacement later
+        youtubeId: null
     },
     {
         id: "sin-concept",
-        title: "Project 'Sin' (In Development)",
+        title: "Project 'Sin' (Concept)",
         hook: "R&D concept exploring systemic emergent behavior.",
         description: "An early technical prototype testing how localized world-state alterations and 'infections' dynamically mutate level topology and AI behavior trees.",
         tags: ["Emergent Systems", "R&D", "Coming Soon"],

@@ -70,10 +70,10 @@ export default function FeaturedProjects() {
         <section id="work" className="max-w-7xl mx-auto px-6 py-24 scroll-m-24">
             <div className="mb-24 space-y-6 max-w-3xl">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white">
-                    Featured Engineering Work
+                    Selected Systems Work
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light">
-                    Deep dives into gameplay systems, architectural mechanics, and applied spatial interactions.
+                    Deep dives into gameplay architecture, combat mechanics, and reactive technical prototyping.
                 </p>
             </div>
 
@@ -130,41 +130,60 @@ export default function FeaturedProjects() {
                                     <div className="absolute top-0 left-0 w-1 h-full bg-blue-600/50" />
 
                                     <h4 className="text-sm uppercase tracking-widest text-gray-500 mb-5 font-bold flex items-center gap-2">
-                                        <Code2 size={16} /> Technical Architecture
+                                        <Code2 size={16} /> System Architecture
                                     </h4>
 
                                     <ul className="space-y-5 text-sm md:text-base text-gray-300">
                                         <li className="flex flex-col md:flex-row gap-2 md:gap-6">
-                                            <strong className="text-white min-w-28 shrink-0 font-semibold tracking-wide uppercase text-xs pt-1">The Goal:</strong>
+                                            <strong className="text-white min-w-32 shrink-0 font-semibold tracking-wide text-xs pt-1">THE GOAL</strong>
                                             <span className="font-light leading-relaxed text-gray-300">{project.caseStudy.goal}</span>
                                         </li>
                                         <li className="flex flex-col md:flex-row gap-2 md:gap-6">
-                                            <strong className="text-white min-w-28 shrink-0 font-semibold tracking-wide uppercase text-xs pt-1">Systems:</strong>
-                                            <span className="font-light leading-relaxed text-gray-300">{project.caseStudy.systems}</span>
+                                            <strong className="text-white min-w-32 shrink-0 font-semibold tracking-wide text-xs pt-1">ASSEMBLY</strong>
+                                            <span className="font-light leading-relaxed text-gray-300">{project.caseStudy.technical}</span>
                                         </li>
                                         <li className="flex flex-col md:flex-row gap-2 md:gap-6">
-                                            <strong className="text-white min-w-28 shrink-0 font-semibold tracking-wide uppercase text-xs pt-1">Challenge:</strong>
+                                            <strong className="text-white min-w-32 shrink-0 font-semibold tracking-wide text-xs pt-1">CHALLENGE</strong>
                                             <span className="font-light leading-relaxed text-blue-100">{project.caseStudy.challenge}</span>
+                                        </li>
+                                        <li className="flex flex-col md:flex-row gap-2 md:gap-6">
+                                            <strong className="text-white min-w-32 shrink-0 font-semibold tracking-wide text-xs pt-1">OUTCOME</strong>
+                                            <span className="font-light leading-relaxed text-emerald-100">{project.caseStudy.outcome}</span>
                                         </li>
                                     </ul>
                                 </div>
                             )}
 
                             <div className="flex flex-wrap gap-4 pt-4 w-full">
-                                <a
-                                    href="#"
-                                    className="flex-1 md:flex-none justify-center group flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                                >
-                                    Read Case Study
-                                    <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </a>
-                                <a
-                                    href="#"
-                                    className="flex-1 md:flex-none justify-center group flex items-center gap-2 px-8 py-4 bg-dark-800 border border-white/10 hover:bg-dark-700 hover:border-white/20 text-white font-semibold rounded-xl transition-all"
-                                >
-                                    <Github size={18} className="text-gray-400 group-hover:text-white transition-colors" />
-                                    Source Code
-                                </a>
+                                {project.youtubeId ? (
+                                    <a
+                                        href={`https://www.youtube.com/watch?v=${project.youtubeId}`}
+                                        target="_blank" rel="noopener noreferrer"
+                                        className="flex-1 md:flex-none justify-center group flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                                    >
+                                        Watch Summary
+                                        <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    </a>
+                                ) : (
+                                    <div className="flex-1 md:flex-none justify-center opacity-50 cursor-not-allowed group flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl">
+                                        Demonstration Offline
+                                    </div>
+                                )}
+                                
+                                {project.repoLink ? (
+                                    <a
+                                        href={project.repoLink}
+                                        className="flex-1 md:flex-none justify-center group flex items-center gap-2 px-8 py-4 bg-dark-800 border border-white/10 hover:bg-dark-700 hover:border-white/20 text-white font-semibold rounded-xl transition-all"
+                                    >
+                                        <Github size={18} className="text-gray-400 group-hover:text-white transition-colors" />
+                                        Source Code
+                                    </a>
+                                ) : (
+                                    <div className="flex-1 md:flex-none justify-center group flex items-center gap-2 px-8 py-4 bg-dark-800 border border-white/10 opacity-50 cursor-not-allowed text-gray-400 font-semibold rounded-xl transition-all">
+                                        <Code2 size={18} />
+                                        Source Protected
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </article>
