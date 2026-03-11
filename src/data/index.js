@@ -54,9 +54,9 @@ export const PROJECTS = [
         repoLink: null,
         caseStudy: {
             goal: "Validate a systemic action loop where modular combat abilities cleanly interact with AI behaviors and level hazards.",
-            systems: "Architected a scalable ability setup handling diverse weapon outputs, integrated alongside a unified damage and state management system.",
-            technical: "Constructed utilizing Data Assets for rapid balancing. Built reliable trap and encounter trigger volumes to shape level flow.",
-            challenge: "Maintaining clear visual feedback amidst chaotic overlapping abilities, solved by prioritizing distinct, high-contrast VFX logic.",
+            systems: "Implemented a modular approach to handle diverse weapon types and projectile behaviors within the top-down framework.",
+            technical: "Built responsive trap mechanics and encounter trigger volumes to test level flow and combat pacing.",
+            challenge: "Structuring clear visual feedback during chaotic combat encounters, solved by prioritizing distinct, high-contrast VFX logic.",
             outcome: "Proved out a highly responsive top-down combat framework that easily allows testing of complex weapon dynamics."
         }
     },
@@ -74,10 +74,10 @@ export const PROJECTS = [
         repoLink: null,
         caseStudy: {
             goal: "Develop a tight, reactive combat loop balancing varied mechanics (melee, ranged, dash, block) within an escalating progression system.",
-            systems: "Implemented a complex player state machine mapping distinct interruptions, invincibility frames, and block mitigation math.",
-            technical: "Utilized animation notifies to precisely sync hitboxes and damage calculation windows to visual impact frames.",
-            challenge: "Ensuring custom enemy behaviors felt fair but punishing, mitigated by designing clear telegraphing states in the AI behavior trees.",
-            outcome: "Demonstrated mastery over frame-perfect combat state management and the exact balance of offensive risk versus defensive reward."
+            systems: "Implemented a complex player state machine mapping distinct combat interruptions, invincibility frames, and block mitigation.",
+            technical: "Utilized animation notifies and state-driven logic to sync combat hitboxes and damage calculation windows.",
+            challenge: "Ensuring custom enemy behaviors felt fair but punishing, mitigated by designing clear telegraphing states before attacks.",
+            outcome: "Demonstrated the ability to balance complex combat state management with offensive risk versus defensive reward."
         }
     },
     {
@@ -94,8 +94,8 @@ export const PROJECTS = [
         repoLink: null,
         caseStudy: {
             goal: "Create a physically grounded, highly readable movement system that maintains momentum traversing complex 3D environments.",
-            systems: "Custom spline-following logic extending the base Character Movement Component to handle rapid acceleration and directional dismounts.",
-            technical: "Applied vector math to project player velocity onto spline tangents, ensuring momentum conservation across varying angles.",
+            systems: "Custom spline-following logic extending base movement capabilities to handle rapid acceleration and directional dismounts.",
+            technical: "Utilized vector math and spline data to calculate and conserve player momentum across varying angles and elevations.",
             challenge: "Preventing jitter during high-speed spline attachment and transitioning smoothly back to standard falling states.",
             outcome: "Delivered a robust, highly extensible traversal mechanic ready for integration into larger level design workflows."
         }
